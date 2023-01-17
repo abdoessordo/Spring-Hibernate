@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.api.persistence.UserEntity;
-import com.example.demo.api.persistence.UserRepository;
+import com.example.demo.model.User;
+import com.example.demo.respo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +16,15 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserEntity getUser(Integer id) {
+    public User getUser(Integer id) {
         return userRepository.getUserEntityById(id);
     }
 
-    public List<UserEntity> getAllUsers(){
+    public List<User> getAllUsers(){
         return userRepository.findAll();
     }
 
-    public UserEntity createUser(UserEntity user) {
+    public User createUser(User user) {
         userRepository.save(user);
         return user;
     }
